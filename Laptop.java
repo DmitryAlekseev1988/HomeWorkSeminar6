@@ -36,8 +36,8 @@ public class Laptop {
 
     public boolean equals(Object laptop) {
         Laptop newLaptop = (Laptop) laptop;
-        return this.name.equals(newLaptop.name) && this.brand.equals(newLaptop.brand) && this.ram == (newLaptop.ram)
-                && this.ssd == (newLaptop.ssd) && this.os.equals(newLaptop.os) && this.colour.equals(newLaptop.colour);
+        return this.name.equals(newLaptop.name) && this.brand.equals(newLaptop.brand) && this.ram.equals(newLaptop.ram)
+                && this.ssd.equals(newLaptop.ssd) && this.os.equals(newLaptop.os) && this.colour.equals(newLaptop.colour);
     }
 
     public static void main(String[] args) {
@@ -48,8 +48,11 @@ public class Laptop {
         Laptop laptop5 = new Laptop("IdeaPad Gaming 3 15IHU6 (82K1010KRK)", "LENOVO", 8, 256, "Windows 10 Home",
                 "shadow black");
         Laptop laptop6 = new Laptop("G5 KF Intel", "GIGABYTE", 16, 512, "Windows 11 Home", "shadow black");
+        Laptop laptop7 = new Laptop("G5 KF Intel", "GIGABYTE", 16, 512, "Windows 11 Home", "shadow black");
+        Laptop laptop8 = new Laptop("G5 KF Intel", "GIGABYTE", 16, 512, "Windows 11 Home", "shadow black");
 
-        HashSet<Laptop> data = new HashSet<>(List.of(laptop1, laptop2, laptop3, laptop4, laptop5, laptop6));
+        HashSet<Laptop> data = new HashSet<>(List.of(laptop1, laptop2, laptop3, laptop4, laptop5, laptop6, laptop7,laptop8));
+        System.out.println(data);
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("\n0 - фильтр по SSD\n1 - фильтр по RAM \n2 - фильтр по Brand");
@@ -76,7 +79,7 @@ public class Laptop {
                 break;
             case 2:
                 System.out.print("Введите параметр Brand: ");
-                String volumeBrand = scanner.nextLine();
+                String volumeBrand = scanner.next();
                 for (Laptop laptop : data) {
                     if (laptop.brand.equals(volumeBrand))
                         System.out.println(laptop);
